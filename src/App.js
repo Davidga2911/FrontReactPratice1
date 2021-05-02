@@ -10,6 +10,13 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
+          Este cambio es el chido <code>src/App.js</code> and save to reload.
+        </p> 
+        <p>
+          espera we
+        </p>
+        <p>
+          no te comas mis cambios
           Adios mundo <code>src/App.js</code> and save to reload.
         </p>
         <a
