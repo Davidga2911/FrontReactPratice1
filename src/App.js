@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import Example from './components/Example'; // default
+// import { Example } from './components/Example'; // nombrado
+// import * as Todo from './components/Example'; // everthing as
 
 function App() {
   // Comment
@@ -19,6 +22,7 @@ function App() {
           no te comas mis cambios
           Adios mundo <code>src/App.js</code> and save to reload.
         </p>
+        <Example />
         <a
             className="App-link"
             href="https://reactjs.org"
