@@ -1,5 +1,7 @@
 //impotación
-import React from 'react'
+/* eslint no-eval: 0 */
+import React, { useState  } from 'react'
+import words from 'lodash.words'
 import Functions from './components/Functions'
 import MathOperations from "./components/MathOperations"
 import Numbers from "./components/Numbers"
@@ -10,25 +12,36 @@ import './App.css'
 //generación de la función del componente
 //arrow Function
 const App = () => {
+    // Array Destructuring 
+    // const [texto, funcionModificaTexto]= useState("")
+    const [stack, setStack]= useState("")
+
+
+    const items = words(stack, /[^-^+^*^/]+/g)
     //lo que ejecuta la función
-    console.log("Renderizacionde App")
+    console.log("Renderizacionde App", items)
+    const value = items.length > 0 ? items[items.length-1] : "0";
     return (
     <main className='react-calculator'>
-        <Result  /> 
+        <Result value={value} /> 
         <div className='numbers'>
-            <Numbers onClickNumber={number =>
-            console.log(number)}/>
+            <Numbers onClickNumber={number => 
+            setStack(`${stack}${number}`) 
+            }/>
         </div>
-            <Functions onContentClear={clear => 
-            console.log("Conten Clear")}
-            onDelete={() =>
-            console.log("onDelete")}/>
-
+            <Functions 
+            onContentClear={clear => setStack('')}
+            onDelete={() => {
+                if ( stack.length > 0 ){
+                const newStack = stack.substring(0, stack.length - 1)
+                setStack(`${newStack}`)
+            }
+                }}/>
             <MathOperations onClickOpertaion={operation => 
-                console.log("Operation:", operation)
+                setStack(`${stack}${operation}`)
             }
                 onClickEqual= {equal => 
-                console.log("Equal", equal )
+                    setStack(eval(stack).toString())
             }/>
     </main>)
     }
