@@ -8,12 +8,9 @@ import Numbers from "./components/Numbers"
 import Result from './components/Result'
 import './App.css'
 
-
-
 const App = () => {
 
     const [stack, setStack]= useState("")
-
 
     const items = words(stack, /[^-^+^*^/]+/g)
     const value = items.length > 0 ? items[items.length-1] : "0";
@@ -21,8 +18,7 @@ const App = () => {
     <main className='react-calculator'>
         <Result value={value} /> 
         <div className='numbers'>
-            <Numbers onClickNumber={number => 
-            setStack(`${stack}${number}`) 
+            <Numbers onClickNumber={number => setStack(`${stack}${number}`) 
             }/>
         </div>
             <Functions 
@@ -33,11 +29,9 @@ const App = () => {
                 setStack(`${newStack}`)
             }
                 }}/>
-            <MathOperations onClickOpertaion={operation => 
-                setStack(`${stack}${operation}`)
+            <MathOperations onClickOpertaion={operation => setStack(`${stack}${operation}`)
             }
-                onClickEqual= {equal => 
-                    setStack(eval(stack).toString())
+                onClickEqual= {equal => setStack(eval(stack).toString())
             }/>
     </main>)
     }
