@@ -19,7 +19,6 @@ const App = () => {
 
     const items = words(stack, /[^-^+^*^/]+/g)
     //lo que ejecuta la función
-    console.log("Renderizacionde App", items)
     const value = items.length > 0 ? items[items.length-1] : "0";
     return (
     <main className='react-calculator'>

@@ -5,7 +5,7 @@ import Button from './Button/Button'
 // DRY: Don't repeat yourself
 const renderButtons = onClickNumber => {
     //var number = 0
-    const numbers = [1,2,3,4,5,6,7,8,9,0]
+    const numbers = [7,8,9,4,5,6,1,2,3,0]
     //iterar desde el boton 1 hasta el 0 
     //<Button text={number.toString()} clickHandler={onClickNumber}/>
     const renderButton = number =>(
